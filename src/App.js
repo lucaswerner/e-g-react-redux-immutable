@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import Header from './header';
 import { bindActionCreators } from 'redux';
 import {
   increment,
@@ -7,12 +8,16 @@ import {
 } from './actions/counter';
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <p>Counter: {this.props.counter.get('count')}</p>
-        <button onClick={this.props.increment}>Increment</button>
-        <button onClick={this.props.decrement}>Decrement</button>
+      <div>
+        <Header />
+        <main className='container'>
+          <p>Counter: {this.props.counter.get('count')}</p>
+          <button onClick={this.props.increment}>Increment</button>
+          <button onClick={this.props.decrement}>Decrement</button>
+        </main>
       </div>
     );
   }
